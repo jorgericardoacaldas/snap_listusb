@@ -1,0 +1,14 @@
+/Users/jorgericardo/Documents/projetos/snap_listusb/snap_listusb/bin/Debug/net8.0/snap_listusb
+/Users/jorgericardo/Documents/projetos/snap_listusb/snap_listusb/bin/Debug/net8.0/snap_listusb.deps.json
+/Users/jorgericardo/Documents/projetos/snap_listusb/snap_listusb/bin/Debug/net8.0/snap_listusb.runtimeconfig.json
+/Users/jorgericardo/Documents/projetos/snap_listusb/snap_listusb/bin/Debug/net8.0/snap_listusb.dll
+/Users/jorgericardo/Documents/projetos/snap_listusb/snap_listusb/bin/Debug/net8.0/snap_listusb.pdb
+/Users/jorgericardo/Documents/projetos/snap_listusb/snap_listusb/obj/Debug/net8.0/snap_listusb.GeneratedMSBuildEditorConfig.editorconfig
+/Users/jorgericardo/Documents/projetos/snap_listusb/snap_listusb/obj/Debug/net8.0/snap_listusb.AssemblyInfoInputs.cache
+/Users/jorgericardo/Documents/projetos/snap_listusb/snap_listusb/obj/Debug/net8.0/snap_listusb.AssemblyInfo.cs
+/Users/jorgericardo/Documents/projetos/snap_listusb/snap_listusb/obj/Debug/net8.0/snap_listusb.csproj.CoreCompileInputs.cache
+/Users/jorgericardo/Documents/projetos/snap_listusb/snap_listusb/obj/Debug/net8.0/snap_listusb.dll
+/Users/jorgericardo/Documents/projetos/snap_listusb/snap_listusb/obj/Debug/net8.0/refint/snap_listusb.dll
+/Users/jorgericardo/Documents/projetos/snap_listusb/snap_listusb/obj/Debug/net8.0/snap_listusb.pdb
+/Users/jorgericardo/Documents/projetos/snap_listusb/snap_listusb/obj/Debug/net8.0/snap_listusb.genruntimeconfig.cache
+/Users/jorgericardo/Documents/projetos/snap_listusb/snap_listusb/obj/Debug/net8.0/ref/snap_listusb.dll
