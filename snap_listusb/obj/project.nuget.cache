@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "coCEDkNSSFw=",
+  "dgSpecHash": "j8gNM9bNllw=",
   "success": true,
   "projectFilePath": "/Users/jorgericardo/Documents/projetos/snap_listusb/snap_listusb/snap_listusb.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/Users/jorgericardo/.nuget/packages/system.codedom/9.0.4/system.codedom.9.0.4.nupkg.sha512",
+    "/Users/jorgericardo/.nuget/packages/system.management/9.0.4/system.management.9.0.4.nupkg.sha512"
+  ],
   "logs": []
 }
