@@ -13,7 +13,7 @@ public class UsbDeviceScanner
     {
         var devices = new List<UsbDeviceInfo>();
 
-        var searcher = new ManagementObjectSearcher(@"Select * From Win32_USBHub");
+var searcher = new ManagementObjectSearcher("SELECT * FROM Win32_PnPEntity WHERE DeviceID LIKE 'USB%'");
 
         foreach (ManagementObject device in searcher.Get())
         {
@@ -21,7 +21,7 @@ public class UsbDeviceScanner
             {
                 VendorId = ExtractVendorId(device["DeviceID"]?.ToString()),
                 ProductId = ExtractProductId(device["DeviceID"]?.ToString()),
-                VendorName = device["Manufacturer"]?.ToString() ?? "Unknown",
+                VendorName = "Unknown",
                 ProductName = device["Name"]?.ToString() ?? "Unknown",
                 SerialNumber = device["PNPDeviceID"]?.ToString() ?? "N/A"
             });
