@@ -36,6 +36,10 @@ public class Monitor
     public string device_type { get; set; }
     public string name { get; set; }
     public string area { get; set; }
+
+    public string host { get; set; }
+
+    public string appName { get; set; }
     public int idVendor { get; set; }
     public int idProduct { get; set; }
 }

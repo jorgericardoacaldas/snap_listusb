@@ -3,12 +3,16 @@ using System.Collections.Generic;
 using System.IO;
 using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.NamingConventions;
+using System.Globalization;
+using System.Text;
 
 class Program
 {
     static void Main()
     {
-        Console.WriteLine("🛠️ Configuração da Loja");
+        Console.OutputEncoding = Encoding.UTF8;
+
+        Console.WriteLine("\U0001F6E0️ Configuração da Loja");
         var site = new Site
         {
             id = AskInt("ID da loja: "),
@@ -23,7 +27,7 @@ class Program
             check_interval = AskInt("Intervalo de checagem (segundos): ")
         };
 
-        Console.WriteLine("🔧 Configuração do Elasticsearch");
+        Console.WriteLine("\U0001F527 Configuração do Elasticsearch");
         var elasticsearch = new ElasticConfig
         {
             host = Ask("URL do Elasticsearch (ex: http://localhost:9200): "),
@@ -35,7 +39,7 @@ class Program
 
         var monitors = new List<Monitor>();
 
-        Console.WriteLine("\n🔌 Dispositivos USB conectados:");
+        Console.WriteLine("\n\U0001F50C Dispositivos USB conectados:");
         foreach (var device in usbDevices)
         {
             Console.WriteLine($"- {device.ProductName} (VID: {device.VendorId}, PID: {device.ProductId})");
@@ -55,7 +59,7 @@ class Program
             }
         }
 
-        Console.Write("\n🖊️ Deseja adicionar manualmente algum dispositivo USB? (s/n): ");
+        Console.Write("\n\uD83D\uDD8A️ Deseja adicionar manualmente algum dispositivo USB? (s/n): ");
         if (Console.ReadLine()?.ToLower() == "s")
         {
             while (true)
@@ -81,7 +85,7 @@ class Program
         }
 
 
-        Console.Write("\n🌐 Deseja adicionar monitoramento de host (ping)? (s/n): ");
+        Console.Write("\n\U0001F310 Deseja adicionar monitoramento de host (ping)? (s/n): ");
         if (Console.ReadLine()?.ToLower() == "s")
         {
             while (true)
@@ -98,8 +102,7 @@ class Program
                     device_type = tipo,
                     name = name,
                     area = area,
-                    idVendor = 0,
-                    idProduct = 0
+                    host = hostUrl
                 });
 
                 Console.Write("Adicionar outro host? (s/n): ");
@@ -107,7 +110,7 @@ class Program
             }
         }
 
-        Console.Write("\n🧠 Deseja adicionar monitoramento de aplicativos? (s/n): ");
+        Console.Write("\n\U0001F9E0 Deseja adicionar monitoramento de aplicativos? (s/n): ");
         if (Console.ReadLine()?.ToLower() == "s")
         {
             while (true)
@@ -123,8 +126,7 @@ class Program
                     device_type = "Aplicativo",
                     name = name,
                     area = area,
-                    idVendor = 0,
-                    idProduct = 0
+                    appName = appName
                 });
 
                 Console.Write("Adicionar outro aplicativo? (s/n): ");
@@ -145,7 +147,7 @@ class Program
             .Build();
 
         var yaml = serializer.Serialize(config);
-        File.WriteAllText("config.yml", yaml);
+        File.WriteAllText("smi_agent.yml", yaml, new UTF8Encoding(true));
 
         Console.WriteLine("\n✅ Arquivo YAML gerado com sucesso: smi_agent.yml");
     }
@@ -171,7 +173,7 @@ class Program
         while (true)
         {
             Console.Write(label);
-            if (double.TryParse(Console.ReadLine(), out var value)) return value;
+            if (double.TryParse(Console.ReadLine(), NumberStyles.Float, CultureInfo.InvariantCulture, out var value)) return value;
             Console.WriteLine("❌ Valor inválido. Tente novamente.");
         }
     }
