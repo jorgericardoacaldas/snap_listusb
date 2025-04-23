@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <PackageReference Include="System.Management" Version="9.0.4" />
+    <PackageReference Include="YamlDotNet" Version="16.3.0" />
   </ItemGroup>
 
 </Project>
