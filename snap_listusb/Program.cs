@@ -37,7 +37,7 @@ class Program
         var scanner = new UsbDeviceScanner();
         var usbDevices = scanner.GetConnectedUsbDevices();
 
-        var monitors = new List<Monitor>();
+        var monitors = new List<IMonitor>();
 
         Console.WriteLine("\n\U0001F50C Dispositivos USB conectados:");
         foreach (var device in usbDevices)
@@ -46,7 +46,7 @@ class Program
             Console.Write("➕ Deseja adicionar ao YAML? (s/n): ");
             if (Console.ReadLine()?.ToLower() == "s")
             {
-                monitors.Add(new Monitor
+                monitors.Add(new USB
                 {
                     type = "usb",
                     enabled = true,
@@ -68,7 +68,7 @@ class Program
                 var vendor = AskInt("idVendor (ex: 1234): ");
                 var product = AskInt("idProduct (ex: 5678): ");
 
-                monitors.Add(new Monitor
+                monitors.Add(new USB
                 {
                     type = "usb",
                     enabled = true,
@@ -95,10 +95,11 @@ class Program
                 var area = Ask("Área (ex: Loja): ");
                 var tipo = Ask("Tipo de dispositivo (ex: gateway): ");
 
-                monitors.Add(new Monitor
+                monitors.Add(new Host
                 {
                     type = "host",
                     enabled = true,
+                    timeout = 2,
                     device_type = tipo,
                     name = name,
                     area = area,
@@ -119,7 +120,7 @@ class Program
                 var appName = Ask("Nome do processo ou appName: ");
                 var area = Ask("Área (ex: Loja): ");
 
-                monitors.Add(new Monitor
+                monitors.Add(new App
                 {
                     type = "app",
                     enabled = true,
@@ -143,7 +144,6 @@ class Program
         };
 
         var serializer = new SerializerBuilder()
-            .WithNamingConvention(CamelCaseNamingConvention.Instance)
             .Build();
 
         var yaml = serializer.Serialize(config);
@@ -155,7 +155,7 @@ class Program
     static string Ask(string label)
     {
         Console.Write(label);
-        return Console.ReadLine() ?? "";
+        return "" + Console.ReadLine() + "" ?? "";
     }
 
     static int AskInt(string label)
