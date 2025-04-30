@@ -1,0 +1,46 @@
+# Build outputs
+bin/
+obj/
+
+# User-specific files
+*.user
+*.suo
+*.sln.docstates
+
+# VS Code
+.vscode/
+
+# Rider
+.idea/
+*.sln.iml
+
+# Logs
+*.log
+*.tlog
+*.tmp
+*.pdb
+
+# .NET Core
+project.assets.json
+project.runtimeconfig.json
+
+# Test results
+TestResults/
+*.trx
+*.coverage
+*.coveragexml
+
+# NuGet
+*.nupkg
+*.snupkg
+.nuget/
+
+# ReSharper / NCrunch
+*.ncrunch*
+*.localhistory/
+_ReSharper*/
+*.DotSettings.user
+
+# Others
+*.DS_Store
+Thumbs.db
